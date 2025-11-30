@@ -15,8 +15,7 @@
 ### 方法一：克隆仓库（推荐）
 
 ```bash
-cd Yunzai/plugins
-git clone https://github.com/HaMan412/Modrinth-Helper-Plugin.git
+git clone https://github.com/HaMan412/Modrinth-Helper-Plugin.git ./plugins/Modrinth-Helper-Plugin/
 pnpm i
 ```
 
