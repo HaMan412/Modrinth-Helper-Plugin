@@ -101,7 +101,7 @@ export class ModrinthSearch extends plugin {
 
             // 发送帮助图片
             await e.reply([
-                segment.image(screenshot)
+                segment.image(`base64://${screenshot.toString('base64')}`)
             ])
 
             logger.mark('[Modrinth] 帮助页面发送成功')
@@ -187,7 +187,7 @@ export class ModrinthSearch extends plugin {
 
                 const detailResult = await e.reply([
                     `【Modrinth】${realSearchQuery}`,
-                    segment.image(screenshot)
+                    segment.image(`base64://${screenshot.toString('base64')}`)
                 ])
 
                 if (detailResult?.message_id) {
@@ -243,7 +243,7 @@ export class ModrinthSearch extends plugin {
             // 发送截图并记录消息ID
             const sendResult = await e.reply([
                 `【Modrinth】: ${categoryDisplayName}\n【关键词】: ${searchQuery}\n【页码】: 1\n【翻页】: 回复 p2、p3... 进行翻页${namesText}`,
-                segment.image(screenshot)
+                segment.image(`base64://${screenshot.toString('base64')}`)
             ])
 
             // 保存会话信息（首次搜索，不记录提示消息ID）
@@ -336,7 +336,7 @@ export class ModrinthSearch extends plugin {
             // 发送截图
             const resultMsg = await e.reply([
                 `【Modrinth】: ${categoryDisplayName}\n【关键词】: ${session.query}\n【页码】: ${page}\n【翻页】: 回复 p${page + 1}... 进行翻页${namesText}`,
-                segment.image(screenshot)
+                segment.image(`base64://${screenshot.toString('base64')}`)
             ])
 
             // 更新会话，记录当前页的消息ID
@@ -418,7 +418,7 @@ export class ModrinthSearch extends plugin {
             // 发送截图
             const detailResult = await e.reply([
                 `【Modrinth】${resourceName}`,
-                segment.image(screenshot)
+                segment.image(`base64://${screenshot.toString('base64')}`)
             ])
 
             // 记录详情页消息ID到会话中
