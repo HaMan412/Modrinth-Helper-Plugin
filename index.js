@@ -3,10 +3,15 @@ import config from './config.js'
 import { segment } from 'oicq'
 import fs from 'fs'
 import path from 'path'
+import { fileURLToPath } from 'url'
 import https from 'https'
 import os from 'os'
 import { takeScreenshot, takeDetailScreenshot } from './puppeteer.js'
 import { extractProjectIdFromUrl, getProjectVersionsFormatted } from './api.js'
+
+// 获取当前文件所在目录
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 // 会话存储：userId -> { category, query, timestamp, messageId, resourceUrls }
 const userSessions = new Map()
@@ -69,7 +74,7 @@ export class ModrinthSearch extends plugin {
      * @returns {string} 临时文件路径
      */
     saveTempImage(buffer) {
-        const tempDir = path.join(process.cwd(), 'data', 'temp', 'modrinth')
+        const tempDir = path.join(__dirname, 'temp')
         if (!fs.existsSync(tempDir)) {
             fs.mkdirSync(tempDir, { recursive: true })
         }
@@ -86,7 +91,7 @@ export class ModrinthSearch extends plugin {
 
         try {
             // 读取 HTML 模板
-            const htmlPath = path.join(process.cwd(), 'plugins', 'modrinth', 'help.html')
+            const htmlPath = path.join(__dirname, 'help.html')
             const htmlContent = fs.readFileSync(htmlPath, 'utf-8')
 
             // 使用 Puppeteer 渲染
