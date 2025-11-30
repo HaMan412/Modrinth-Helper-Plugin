@@ -15,15 +15,14 @@
 ### 方法一：克隆仓库（推荐）
 
 ```bash
-cd Yunzai/plugins
-git clone https://github.com/HaMan412/Modrinth-Helper-Plugin.git
+git clone https://github.com/HaMan412/Modrinth-Helper-Plugin.git ./plugins/Modrinth-Helper-Plugin/
 pnpm i
 ```
 
 ### 方法二：手动下载
 
 1. 下载本仓库
-2. 解压到 `Yunzai/plugins/modrinth` 目录
+2. 解压到 `.../plugins/` 目录
 3. 重启 Yunzai
 
 ## � 指令列表
