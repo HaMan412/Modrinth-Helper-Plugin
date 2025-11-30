@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modrinth-Helper 插件帮助</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 26px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #1abc9c;
+            font-weight: 600;
+        }
+
+        .command-item {
+            background: #f8f9fa;
+            border-left: 4px solid #1abc9c;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .command-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .command-name {
+            font-size: 20px;
+            color: #16a085;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        .command-desc {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .command-example {
+            background: #2c3e50;
+            color: #1abc9c;
+            padding: 12px 15px;
+            border-radius: 6px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .example-label {
+            color: #95a5a6;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .category-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+
+        .note-title {
+            color: #856404;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .note-content {
+            color: #856404;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+        }
+
+        .footer-brand {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1abc9c;
+        }
+
+        .workflow {
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .workflow-step {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            font-size: 15px;
+        }
+
+        .step-number {
+            background: #1abc9c;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: 600;
+        }
+
+        .highlight {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 Modrinth-Helper 插件帮助</h1>
+            <p>搜索和下载 Modrinth 上的 Minecraft 资源</p>
+        </div>
+
+        <div class="content">
+            <!-- 基础搜索 -->
+            <div class="section">
+                <div class="section-title">📋 基础搜索</div>
+                <div class="command-item">
+                    <div class="command-name">#mr [分类] [关键词]</div>
+                    <div class="command-desc">搜索 Modrinth 上的资源</div>
+                    <div class="example-label">示例：</div>
+                    <div class="command-example">#mr mod sodium</div>
+                    <div class="command-example">#mr 模组 钠</div>
+                </div>
+            </div>
+
+            <!-- 支持的分类 -->
+            <div class="section">
+                <div class="section-title">🔖 支持的分类</div>
+                <div class="category-grid">
+                    <div class="category-badge">mod / 模组</div>
+                    <div class="category-badge">shader / 光影</div>
+                    <div class="category-badge">resourcepack / 资源包</div>
+                    <div class="category-badge">datapack / 数据包</div>
+                    <div class="category-badge">modpack / 整合包</div>
+                    <div class="category-badge">plugin / 插件</div>
+                </div>
+            </div>
+
+            <!-- 快捷操作 -->
+            <div class="section">
+                <div class="section-title">⚡ 快捷操作</div>
+
+                <div class="command-item">
+                    <div class="command-name">p[页码]</div>
+                    <div class="command-desc">回复搜索结果进行翻页</div>
+                    <div class="example-label">示例：</div>
+                    <div class="command-example">p2 → 翻到第2页</div>
+                </div>
+
+                <div class="command-item">
+                    <div class="command-name">g[序号]</div>
+                    <div class="command-desc">回复搜索结果查看资源详情</div>
+                    <div class="example-label">示例：</div>
+                    <div class="command-example">g1 → 查看第1个资源详情</div>
+                </div>
+
+                <div class="command-item">
+                    <div class="command-name">version 或 v</div>
+                    <div class="command-desc">回复详情页查看版本列表（<span class="highlight">通过官方 API 快速获取</span>）</div>
+                    <div class="example-label">示例：</div>
+                    <div class="command-example">version 或 v</div>
+                </div>
+
+                <div class="command-item">
+                    <div class="command-name">v[页码]</div>
+                    <div class="command-desc">回复版本列表进行翻页</div>
+                    <div class="example-label">示例：</div>
+                    <div class="command-example">v2 → 查看版本列表第2页</div>
+                </div>
+
+                <div class="command-item">
+                    <div class="command-name">d[序号]</div>
+                    <div class="command-desc">回复版本列表下载指定版本</div>
+                    <div class="example-label">示例：</div>
+                    <div class="command-example">d1 → 下载第1个版本</div>
+                </div>
+            </div>
+
+            <!-- 直接查看详情 -->
+            <div class="section">
+                <div class="section-title">🚀 直接查看详情</div>
+                <div class="command-item">
+                    <div class="command-name">#mr s [分类] [资源名]</div>
+                    <div class="command-desc">跳过搜索，直接查看资源详情页</div>
+                    <div class="example-label">示例：</div>
+                    <div class="command-example">#mr s mod sodium</div>
+                </div>
+            </div>
+
+            <!-- 使用流程 -->
+            <div class="section">
+                <div class="section-title">📖 典型使用流程</div>
+                <div class="workflow">
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <div>发送搜索命令：<code>#mr mod sodium</code></div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <div>回复搜索结果：<code>g1</code> 查看第1个资源详情</div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <div>回复详情页：<code>v</code> 查看版本列表</div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">4</div>
+                        <div>回复版本列表：<code>d1</code> 下载第1个版本</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 提示 -->
+            <div class="note">
+                <div class="note-title">💡 温馨提示</div>
+                <div class="note-content">
+                    • 所有回复操作都需要回复对应的消息<br>
+                    • 版本列表现已使用 API 加载，速度更快<br>
+                    • 支持中英文分类名称<br>
+                    • 会话在 10 分钟后自动过期
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-brand">⚡ Powered by Modrinth-Helper-Plugin & TRSS-Yunzai</div>
+        </div>
+    </div>
+</body>
+
+</html>
