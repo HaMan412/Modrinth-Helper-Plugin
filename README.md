@@ -22,7 +22,7 @@ pnpm i
 ### 方法二：手动下载
 
 1. 下载本仓库
-2. 解压到 `Yunzai/plugins/modrinth` 目录
+2. 解压到 `.../plugins/` 目录
 3. 重启 Yunzai
 
 ## � 指令列表
