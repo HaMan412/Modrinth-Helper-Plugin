@@ -66,7 +66,7 @@ pnpm i
 | 插件 | plugin |
 
 ## 演示
-[](https://github.com/HaMan412/Modrinth-Helper-Plugin/blob/main/img/1.png)
+![](https://github.com/HaMan412/Modrinth-Helper-Plugin/blob/main/img/1.png)
 
 ## AI 辅助开发申明
 
