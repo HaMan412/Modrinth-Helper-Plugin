@@ -65,6 +65,9 @@ pnpm i
 | 整合包 | modpack |
 | 插件 | plugin |
 
+## 演示
+[]()
+
 ## AI 辅助开发申明
 
 本插件由 **谷歌反重力 - Antigravity** 辅助开发完成。
