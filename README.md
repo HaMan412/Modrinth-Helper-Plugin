@@ -75,5 +75,3 @@ pnpm i
 ## 📄 开源协议
 
 MIT License
-
----"# Modrinth-Helper-Plugin" 
